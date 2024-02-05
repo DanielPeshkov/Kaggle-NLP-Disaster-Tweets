@@ -6,8 +6,8 @@ import pandas as pd
 from transformers import pipeline
 
 # Load the files
-test = pd.read_csv('test.csv')
-sample = pd.read_csv('sample_submission.csv')
+test = pd.read_csv('../test.csv')
+sample = pd.read_csv('../sample_submission.csv')
 
 # Create the sentiment analysis pipeline and make predictions
 sentiment_pipeline = pipeline("sentiment-analysis")
