@@ -10,9 +10,9 @@ test = pd.read_csv('../test.csv')
 sample = pd.read_csv('../sample_submission.csv')
 
 # Create the sentiment analysis pipeline and make predictions
-sentiment_pipeline = pipeline("sentiment-analysis")
+sentiment_pipeline = pipeline(task="sentiment-analysis", model='cardiffnlp/twitter-roberta-base-sentiment-latest')
 predictions = sentiment_pipeline(list(test['text']))
-labels = [1*(i['label'] == 'NEGATIVE') for i in predictions]
+labels = [1*(i['label'] != 'positive') for i in predictions]
 
 # Write predictions to submission file
 sample['target'] = labels
